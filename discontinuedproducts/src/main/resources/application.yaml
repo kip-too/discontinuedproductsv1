@@ -1,0 +1,25 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: discontinuedproducts
+    logging:
+    level:
+      root: INFO
+      org.springframework.batch: DEBUG
+  datasource:
+    url: jdbc:postgresql://localhost:5432/northwind
+    username: postgres
+    password: kiptoo
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+    output:
+        file: output/discontinued_products.log
